@@ -1,0 +1,124 @@
+{
+ "options": {
+  "driver": {
+   "method": "fwcadis", 
+   "mglib": "anisn", 
+   "model": "mcnp", 
+   "outputs": [
+    "mcnp"
+   ], 
+   "solver": "denovo"
+  }, 
+  "mesh": {
+   "mesh_refinement": "mcnp", 
+   "mesh_x": [
+    -300.0, 
+    -5.0, 
+    30.0, 
+    300.0
+   ], 
+   "mesh_x_ints": [
+    30, 
+    35, 
+    30
+   ], 
+   "mesh_y": [
+    -300.0, 
+    -5.0, 
+    5.0, 
+    300.0
+   ], 
+   "mesh_y_ints": [
+    30, 
+    10, 
+    30
+   ], 
+   "mesh_z": [
+    -100.0, 
+    0.0, 
+    10.0, 
+    100.0
+   ], 
+   "mesh_z_ints": [
+    20, 
+    10, 
+    20
+   ]
+  }, 
+  "method": {
+   "fwcadis_max_response": Infinity, 
+   "fwcadis_min_response": 0.0, 
+   "fwcadis_response_weighting": true, 
+   "fwcadis_spatial_treatment": "global"
+  }, 
+  "mglib": {
+   "anisn_library": "bplus", 
+   "anisn_upscatter": false
+  }, 
+  "model": {
+   "mcnp_force_point_source": false, 
+   "mcnp_input": "input.i", 
+   "mcnp_lost_rays": 10, 
+   "mcnp_material_names": {}, 
+   "mcnp_max_point_sources": 20, 
+   "mcnp_max_source_samples": 100000000, 
+   "mcnp_min_rays_per_face": 20, 
+   "mcnp_min_source_samples": 1000000, 
+   "mcnp_mix_tolerance": 0.01, 
+   "mcnp_num_rays": 1, 
+   "mcnp_ray_directions": "xyz", 
+   "mcnp_tallies": [
+    4
+   ], 
+   "mcnp_target_source_density": 100, 
+   "mcnp_unfolding_safe": false
+  }, 
+  "output_mcnp": {
+   "mcnp_create_input": true, 
+   "mcnp_max_sb_samples": 100000000, 
+   "mcnp_min_sb_samples": 1000000, 
+   "mcnp_mxspln": 100, 
+   "mcnp_num_wgt_samples": 10000000, 
+   "mcnp_sb_type": "space_energy", 
+   "mcnp_target_sb_density": 10000, 
+   "mcnp_user_sb_sampling": false, 
+   "mcnp_ww_collapse_factor": 1.0, 
+   "mcnp_ww_ratio": 5.0
+  }, 
+  "solver": {
+   "denovo_discretization": "sc", 
+   "denovo_energy_sets": 1, 
+   "denovo_first_group": null, 
+   "denovo_hdf5_angles": false, 
+   "denovo_krylov_space": 20, 
+   "denovo_last_group": null, 
+   "denovo_max_iterations": 100, 
+   "denovo_mc_first_collision": false, 
+   "denovo_partition_upscatter": true, 
+   "denovo_pn_order": 5, 
+   "denovo_preconditioner": "none", 
+   "denovo_quad_num_azi": 37, 
+   "denovo_quad_num_polar": 16, 
+   "denovo_quad_polar_axis": "z", 
+   "denovo_quadrature": "qr", 
+   "denovo_silo_mixed": false, 
+   "denovo_silo_moments": false, 
+   "denovo_solver": "gmres", 
+   "denovo_tolerance": 0.001, 
+   "denovo_transport_correction": "diagonal", 
+   "denovo_verbose": true, 
+   "denovo_x_blocks": 8, 
+   "denovo_y_blocks": 3, 
+   "denovo_z_blocks": 1
+  }
+ }, 
+ "system": [
+  "Linux", 
+  "compute-0-1.local", 
+  "2.6.32-358.el6.x86_64", 
+  "#1 SMP Fri Feb 22 00:31:26 UTC 2013", 
+  "x86_64", 
+  "x86_64"
+ ], 
+ "version": "3.0.3 (r1792: #6603345e on 2015NOV29)"
+}
