@@ -66,4 +66,4 @@ def run(fname):
     gridToVTK('./{}err'.format(fname), cx, cy, cz, cellData=phi)
         
 if __name__ == '__main__':
-    run('case1')
+    run('case2')
