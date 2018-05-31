@@ -33,6 +33,8 @@ ax.set_xscale('log')
 ax.set_yscale('log')
 ax.set_xlim(1e-3, 10)
 ax.set_ylim(1e13, 1e18)
+ax.set_xlabel('Energy (MeV)')
+ax.set_ylabel('Activity (Bq)')
 
 ax.plot(element_3684.stepu_x, element_3684.stepu_y, 'b', label='Element 3684')
 # ax.plot(element_2989.stepu_x, element_2989.stepu_y, 'g', label='Element 2989')
