@@ -6,8 +6,8 @@ from senior_design_template import template
 #                        user defined parameters
 ###############################################################################
 
-plug_type = 3
-fuel_height = 24
+plug_type = 2
+fuel_height = 0
 
 ###############################################################################
 
