@@ -6,8 +6,23 @@ from senior_design_template import template
 #                        user defined parameters
 ###############################################################################
 
-plug_type = 2
-fuel_height = 0
+# select case
+case = 1
+
+# case 1 -> Steel Collimator Inserted, Fuel Rod in Line-of-Sight
+# case 2 -> Collimator Removed, Fuel Rod Raised
+
+###############################################################################
+
+if case == 1:
+    input_name = 'case1.i'
+    plug_type = 2
+    fuel_height = 0
+
+if case == 2:
+    input_name = 'case2.i'
+    plug_type = 3
+    fuel_height = 23
 
 ###############################################################################
 
@@ -39,7 +54,7 @@ def cardWriter(card, data, elements):
     return s
 
 
-def write_cask(plug, height):
+def write_cask(inputname, plug, height):
     '''
     writes an mcnp input file for the fuel storage cask
 
@@ -69,15 +84,21 @@ def write_cask(plug, height):
     h_bot = h_c - 19.05
 
     # load in source spectrum
-    source_erg, source_probs = np.loadtxt('source.txt', skiprows=6, unpack=True)
+    data = np.loadtxt('source_spectra/element_3684.txt', skiprows=6)
+    data = np.array(list(data[::2]) + [list(data[-1])])
+    source_erg = data[:, 0]
+    source_vals = data[:, 1]
     s_source = ''
-    s_source += cardWriter('SI3  H ', source_erg[::2], 4)
-    s_source += cardWriter('SP3    ', source_probs[::2], 4)
+    s_source += cardWriter('SI3  H ', source_erg, 4)
+    s_source += cardWriter('SP3    ', source_vals, 4)
 
-    inp = template.format(s_plug, h_bot, h_bot, s_source)
+    # calculate unit conversion
+    tally_multiplier = np.sum(source_vals) * 1E5 * 3600  # 1/s * mrem/Sv * s/hr
 
-    with open('input.i', 'w+') as F:
+    inp = template.format(s_plug, h_bot, h_bot, s_source, tally_multiplier)
+
+    with open(inputname, 'w+') as F:
         F.write(inp)
 
 if __name__ == '__main__':
-    write_cask(plug_type, fuel_height)
+    write_cask(input_name, plug_type, fuel_height)
