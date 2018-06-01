@@ -6,4 +6,4 @@ NO_OF_CORES=`cat $PBS_NODEFILE | egrep -v '^#'\|'^$' | wc -l | awk '{print $1}'`
 echo $NO_OF_CORES
 NODE_LIST=`cat $PBS_NODEFILE`
 echo $NODE_LIST
-$HOME/opt/advantg/bin/advantg input.adv
+$HOME/opt/advantg/bin/advantg case1.adv
