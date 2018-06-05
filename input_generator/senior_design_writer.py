@@ -7,7 +7,7 @@ from senior_design_template import template
 ###############################################################################
 
 # select case
-case = 1
+case = 2
 
 # case 1 -> Steel Collimator Inserted, Fuel Rod in Line-of-Sight
 # case 2 -> Collimator Removed, Fuel Rod Raised
