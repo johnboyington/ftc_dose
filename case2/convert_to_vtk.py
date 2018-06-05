@@ -50,7 +50,7 @@ def run(fname):
         X = np.searchsorted(Xs, float(X)) - 1
         Y = np.searchsorted(Ys, float(Y)) - 1
         Z = np.searchsorted(Zs, float(Z)) - 1
-        data[E,X,Y,Z] = float(phi) * (2.13696e+26 / 2.98189e19)
+        data[E,X,Y,Z] = float(phi)
         if err == 0:
             error[E,X,Y,Z] = 1.0
         else:
